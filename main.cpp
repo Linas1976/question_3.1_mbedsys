@@ -8,10 +8,9 @@ static DevI2C devI2c(PB_11,PB_10);
 static LSM6DSLSensor acc_gyro(&devI2c,0xD4,D4,D5); // high address
 
 
-float computeAngle(int x, int y, int z){
-    float res = 0;
-
-    return res;
+float computeAngle(int x, int y, int z) {
+    float pitch = atan2(-x, sqrt(y * y + z * z)) * 180.0 / PI;
+    return pitch;
 }
 
 /* Simple main function */
